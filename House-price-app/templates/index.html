@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="main-container">
+
+    <h1>🏠 House Price Predictor</h1>
+
+    <!-- Upload Section -->
+    <div class="card">
+        <h2>Upload Dataset</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button type="submit">Upload & Train</button>
+        </form>
+        <p class="message">{{ message }}</p>
+    </div>
+
+    <!-- Prediction Section -->
+    <div class="card">
+        <h2>Predict House Price</h2>
+        <form action="/predict" method="post">
+            <input type="text" name="area" placeholder="Area (sq ft)" required>
+            <input type="text" name="bedrooms" placeholder="Bedrooms" required>
+            <input type="text" name="bathrooms" placeholder="Bathrooms" required>
+            <button type="submit">Predict</button>
+        </form>
+        <p class="prediction">{{ prediction_text }}</p>
+    </div>
+
+</div>
+
+</body>
+</html>
